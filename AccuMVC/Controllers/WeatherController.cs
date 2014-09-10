@@ -76,8 +76,8 @@ namespace AccuMVC.Controllers
 						ForecastWeatherModel forecast = new ForecastWeatherModel();
 						forecast.ForecastIcon = GetIcon(int.Parse(jObject[i]["WeatherIcon"].ToString()));
 						DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-						dt.AddSeconds(int.Parse(jObject[i]["EpochDateTime"].ToString()));
-						forecast.FormattedTime = dt.ToShortTimeString();
+						dt = dt.AddSeconds(double.Parse(jObject[i]["EpochDateTime"].ToString()));
+						forecast.FormattedTime = dt.ToLocalTime().ToShortTimeString();
 						forecast.IconPhrase = jObject[i]["IconPhrase"].ToString();
 						forecast.Temperature = jObject[i]["Temperature"]["Value"].ToString();
 						forecast.TemperatureUnit = jObject[i]["Temperature"]["Unit"].ToString();
