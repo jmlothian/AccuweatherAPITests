@@ -1,0 +1,9 @@
+﻿@model AccuMVC.Models.LocationModel
+
+<div class="searchResult">
+    <div>@Html.DisplayFor(model => model.LocalizedName)</div>
+    <div>@Html.DisplayFor(model => model.AdministrativeAreaLocalizedName)</div>
+    <div>@Html.DisplayFor(model => model.PrimaryPostalCode)</div>
+    <div>@Html.DisplayFor(model => model.Country)</div>
+    <div>@Html.ActionLink("Select","Index", "Weather", new { id = Model.Key }, null)</div>
+</div>

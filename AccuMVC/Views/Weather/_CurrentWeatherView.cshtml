@@ -1,0 +1,8 @@
+﻿@model AccuMVC.Models.CurrentWeatherModel
+
+<div>
+    <h2>Current</h2>
+    <img src="@Url.Content(ViewData.Model.WeatherImage)" class="wimg" /><div>@Html.DisplayFor(Model => Model.WeatherText)</div>
+    <div class=""><span>@Html.DisplayFor(Model => Model.ImperialTemp)</span><span>&deg;F</span></div>
+    <div><span>@Html.DisplayFor(Model => Model.MetricTemp)</span><span>&deg;C</span></div>
+</div>

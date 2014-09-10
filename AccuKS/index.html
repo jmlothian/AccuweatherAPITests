@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AccuWeather Test - Knockout Edition</title>
+    <link href="Content/Weather.css" rel="stylesheet" />
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/knockout-3.2.0.js"></script>
+    <script src="js/AccuViewModel.js"></script>
+</head>
+<body onload="Init();">
+    <h1>Weather</h1>
+    <div>
+        <input type="text" value="" id="txtSearch" /><input type="button" value="Search" data-bind="click:search"  />
+    </div>
+    <!-- ko if: searchResults() != null -->
+    <div data-bind="foreach:searchResults()">
+        <div class="searchResult">
+            <div data-bind="text:LocalizedName"></div>
+            <div data-bind="text:AdministrativeArea.LocalizedName"></div>
+            <div data-bind="text:PrimaryPostalCode"></div>
+            <div data-bind="text:Country.LocalizedName"></div>
+            <input type="button" data-bind="click:$parent.selectCity.bind($data)" value="Select">
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: currentWeather() != null -->
+    <div>
+        <h2>Current</h2>
+        <img src="" data-bind="attr:{src: currentWeatherImage}"  class="wimg"/><div data-bind="text:currentWeather().WeatherText"></div>
+        <div class=""><span data-bind="text:currentWeather().Temperature.Imperial.Value"></span><span>&deg;F</span></div>
+        <div><span data-bind="text:currentWeather().Temperature.Metric.Value"></span><span>&deg;C</span></div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: forecast12Hours().length > 0 -->
+    <div>
+        <h2>12 Hour Forecast</h2>
+        <div data-bind="foreach:forecast12Hours()">
+            <div class="foreRow">
+                <div class="foreDate" data-bind="text:$parent.getDateTime($data)"></div>
+                <img src="" data-bind="attr:{src: $parent.getForecastIcon($data)}" class="wimg" />
+                <div class="details">
+                    <div class="shortTxt" data-bind="text:IconPhrase"></div>
+                    <div class="shortTxt"><span data-bind="text:Temperature.Value"></span><span>&deg;</span><span data-bind="text:Temperature.Unit"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">&nbsp;</div>
+    </div>
+    <!-- /ko -->
+</body>
+</html>

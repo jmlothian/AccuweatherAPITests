@@ -1,0 +1,42 @@
+﻿.wimg
+{
+    padding:10px;
+    background-color:white;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    float:left;
+    clear:both;
+}
+.foreDate
+{
+    clear:both;
+}
+.shortTxt
+{
+    float:left;
+    margin:4px;
+}
+.foreRow
+{
+    background-color:#042C57;
+    color:white;
+    border-top:1px solid gray;
+    font-family:Arial Helvetica sans-serif;
+    padding:10px;
+    height:85px;
+}
+.details
+{
+    padding:10px;
+}
+.footer
+{
+    clear:both;
+}
+.searchResult {
+    background-color:#043A4C;
+    color:white;
+    border-top:1px solid gray;
+    font-family:Arial Helvetica sans-serif;
+    padding:10px;
+}

@@ -1,0 +1,19 @@
+﻿@model AccuMVC.Models.LocationSearchModel
+
+@using(Html.BeginForm())
+{
+    <div>
+        @Html.TextBoxFor(model => model.SearchText)
+        <input type="submit" value="Search" />
+    </div>
+}
+    <div>
+        @if(Model.Error)
+        {
+            <div>An error occured while searching for your location.  Please try again later.</div>
+        }
+        @foreach (var item in Model.SearchResults)
+        {
+            @Html.Partial("_SearchResult", item);
+        }
+    </div>

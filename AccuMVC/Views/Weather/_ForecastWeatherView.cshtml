@@ -1,0 +1,10 @@
+﻿@model AccuMVC.Models.ForecastWeatherModel
+
+<div class="foreRow">
+    <div class="foreDate">@Html.DisplayFor(Model => Model.FormattedTime)</div>
+    <img src="@Url.Content(ViewData.Model.ForecastIcon)" class="wimg" />
+    <div class="details">
+        <div class="shortTxt">@Html.DisplayFor(Model => Model.IconPhrase)</div>
+        <div class="shortTxt"><span>@Html.DisplayFor(Model => Model.Temperature)</span><span>&deg;</span><span>@Html.DisplayFor(Model => Model.TemperatureUnit)</span></div>
+    </div>
+</div>

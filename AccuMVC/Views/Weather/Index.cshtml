@@ -1,0 +1,17 @@
+﻿@model AccuMVC.Models.LocationWeatherModel
+
+@Html.Partial("_CurrentWeatherView", Model.CurrentWeather)
+
+<div>
+    <h2>12 Hour Forecast</h2>
+    <div>
+        @if (Model.Error)
+        {
+            <div>An error occured while retrieving local weather information.  Please try again later.</div>
+        }
+        @foreach (var item in Model.ForecastWeather)
+        {
+            @Html.Partial("_ForecastWeatherView", item)
+        }
+    </div>
+</div>
